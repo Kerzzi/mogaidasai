@@ -1,41 +1,58 @@
 class Admin::ProductsController < Admin::BaseController
-  before_action :authenticate_user!
-  before_action :admin_required
+
+  before_action :find_product, only: [:edit, :update, :destroy]
 
   def index
-    @products = Product.all
+   @products = Product.page(params[:page] || 1).per_page(params[:per_page] || 10)
+      .order("id desc")
   end
 
   def new
     @product = Product.new
-  end
-
-  def create
-    @product = Product.new(product_params)
-
-    if @product.save
-      redirect_to admin_products_path
-    else
-      render :new
-    end
+    @root_categories = Category.roots
   end
 
   def edit
-   @product = Product.find(params[:id])
+    @root_categories = Category.roots
+    render action: :new
+  end
+
+  def create
+    @product = Product.new(params.require(:product).permit!)
+    @root_categories = Category.roots
+
+    if @product.save
+      flash[:notice] = "创建成功"
+      redirect_to admin_products_path
+    else
+      render action: :new
+    end
   end
 
   def update
-   @product = Product.find(params[:id])
-
-   if @product.update(product_params)
-     redirect_to admin_products_path
-   else
-     render :edit
-   end
+    @product.attributes = params.require(:product).permit!
+    @root_categories = Category.roots
+    if @product.save
+      flash[:notice] = "修改成功"
+      redirect_to admin_products_path
+    else
+      render action: :new
+    end
   end
+
+  def destroy
+    if @product.destroy
+      flash[:notice] = "删除成功"
+      redirect_to admin_products_path
+    else
+      flash[:notice] = "删除失败"
+      redirect_to :back
+    end
+  end
+
   private
 
-  def product_params
-    params.require(:product).permit(:title, :description, :quantity, :price, :image)
+  def find_product
+    @product = Product.find(params[:id])
   end
 end
