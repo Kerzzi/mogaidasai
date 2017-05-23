@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   root 'products#index'
 
   namespace :admin do
-    root 'sessions#new'
+    root 'static_pages#about'
     resources :products
     resources :categories
     resources :orders do
