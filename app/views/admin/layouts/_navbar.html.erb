@@ -18,6 +18,8 @@
         <li><a href="<%= admin_products_path %>">商品管理</a></li>
         <li><a href="<%= admin_categories_path %>">拍卖管理</a></li>
         <li><a href="<%= root_path %>">返回前台</a></li>
+         <li><%= link_to(content_tag(:i, '登出', class: 'fa fa-sign-out'),
+             destroy_user_session_path, method: :delete) %></li>
       </ul>
     </div>
   </div>
