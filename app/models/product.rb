@@ -24,6 +24,8 @@ class Product < ApplicationRecord
 
   before_create :set_default_attrs #产品创建之前生成唯一uuid
 
+  scope :onshelf, -> { where(status: Status::On) }
+
   module Status
     On = 'on'
     Off = 'off'

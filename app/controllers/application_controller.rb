@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
     @current_cart ||= find_cart
   end
 
+  def fetch_home_data
+    @categories = Category.grouped_data
+  end
+
   private
 
   def find_cart

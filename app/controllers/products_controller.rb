@@ -1,9 +1,12 @@
 class ProductsController < ApplicationController
   def index
-   @products = Product.all
+    fetch_home_data
+    @products = Product.onshelf.page(params[:page] || 1).per_page(params[:per_page] || 12)
+                .order("id desc").includes(:product_images)
   end
 
   def show
+   fetch_home_data
    @product = Product.find(params[:id])
   end
 

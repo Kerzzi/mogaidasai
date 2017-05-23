@@ -9,6 +9,16 @@ class Category < ApplicationRecord
 
   has_many :products, dependent: :destroy
 
+  # 保证可以在多个页面中，取得一二级分类
+  def self.grouped_data
+    self.roots.order("weight desc").inject([]) do |result, parent|
+       row = []
+       row << parent
+       row << parent.children.order("weight desc")
+       result << row
+     end
+  end
+
   private
   def correct_ancestry
     self.ancestry = nil if self.ancestry.blank?
