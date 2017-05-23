@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170523123738) do
+ActiveRecord::Schema.define(version: 20170523152319) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "address_type"
+    t.string   "contact_name"
+    t.string   "cellphone"
+    t.string   "address"
+    t.string   "zipcode"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["user_id", "address_type"], name: "index_addresses_on_user_id_and_address_type"
+  end
 
   create_table "cart_items", force: :cascade do |t|
     t.integer  "cart_id"
@@ -18,6 +30,10 @@ ActiveRecord::Schema.define(version: 20170523123738) do
     t.integer  "quantity",   default: 1
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.integer  "user_id"
+    t.string   "user_uuid"
+    t.index ["user_id"], name: "index_cart_items_on_user_id"
+    t.index ["user_uuid"], name: "index_cart_items_on_user_uuid"
   end
 
   create_table "carts", force: :cascade do |t|
@@ -49,7 +65,14 @@ ActiveRecord::Schema.define(version: 20170523123738) do
     t.boolean  "is_paid",          default: false
     t.string   "payment_method"
     t.string   "aasm_state",       default: "order_placed"
+    t.integer  "product_id"
+    t.integer  "address_id"
+    t.string   "order_no"
+    t.integer  "amount"
+    t.datetime "payment_at"
     t.index ["aasm_state"], name: "index_orders_on_aasm_state"
+    t.index ["order_no"], name: "index_orders_on_order_no", unique: true
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "product_images", force: :cascade do |t|
@@ -106,8 +129,11 @@ ActiveRecord::Schema.define(version: 20170523123738) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.boolean  "is_admin",               default: false
+    t.integer  "default_address_id"
+    t.string   "uuid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["uuid"], name: "index_users_on_uuid", unique: true
   end
 
 end

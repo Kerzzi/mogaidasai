@@ -1,11 +1,18 @@
 class OrdersController < ApplicationController
 
-  before_action :authenticate_user!, only: [:create]
+  before_action :authenticate_user!
+
+  def new
+    fetch_home_data
+    @cart = Cart.find_by(id: session[:cart_id])
+    @cart_item = Cart.find_by(id: session[:cart_id]).order("id desc").includes([:product => [:main_product_image]])
+  end
 
   def create
     @order = Order.new(order_params)
     @order.user = current_user
     @order.total = current_cart.total_price
+    cart_item = Cart.find_by(product_id: params[:id]).includes(:product)
 
     if @order.save
       current_cart.cart_items.each do |cart_item|
@@ -22,8 +29,12 @@ class OrdersController < ApplicationController
 
       redirect_to order_path(@order.token)
     else
-      render 'carts/checkout'
+      # render 'carts/checkout'
+      redirect_to carts_path
     end
+    address = current_user.addresses.find(params[:address_id])
+    Order.create_order_from_cart_items!(current_user, address, cart_items)
+
   end
 
   def show

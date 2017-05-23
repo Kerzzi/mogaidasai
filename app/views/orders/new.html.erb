@@ -1,0 +1,59 @@
+<h1>确认订单</h1>
+<div class="row">
+  <div class="container">
+    <div class="page-header">
+      <h4><i class="fa fa-map-marker"></i> 收货地址</h4>
+    </div>
+    <div id="address_list">
+
+    </div>
+
+    <div class="page-header">
+      <h4><i class="fa fa-credit-card"></i> 支付方式</h4>
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <input type="radio" name="payment_method" value="alipay" checked />
+        <%= image_tag "alipay.png", width: 100 %>
+      </li>
+    </ul>
+
+    <div class="page-header">
+      <h4><i class="fa fa-list-alt"></i> 商品列表</h4>
+    </div>
+    <% @cart_items.each do |cart_item| %>
+      <div class="media cart-item-row">
+        <div class="media-left">
+          <%= image_tag cart_item.product.main_product_image.image.url(:small), class: 'media-object', alt: cart_item.product.title %>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading"><%= cart_item.product.title %></h4>
+          数量: <%= cart_item.quantity %> 价格: ¥<%= cart_item.quantity * cart_item.product.price %>
+        </div>
+      </div>
+    <% end -%>
+
+    <br />
+    <div class="pull-right">
+      <%= form_tag orders_path, method: :post, class: "create-order-form" do %>
+        <input type="hidden" name="address_id" />
+        <strong>总价: ¥<%= @cart_items.sum { |cart_item| cart_item.quantity * cart_item.product.price } %></strong>
+        <input type="submit" value="确认订单" class="btn btn-danger btn-lg" />
+      <% end %>
+    </div>
+
+    <div class="clearfix"></div>
+    <br />
+    <br />
+    <br />
+    <br />
+  </div>
+</div>
+
+<%= content_for :javascripts do %>
+  <script>
+    $.get('/addresses', function(data) {
+      $('#address_list').html(data);
+    })
+  </script>
+<% end %>

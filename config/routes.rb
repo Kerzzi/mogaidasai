@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   get 'static_pages/help'
   get 'static_pages/contact'
 
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
+  
   root 'products#index'
 
   namespace :admin do
@@ -43,6 +46,7 @@ Rails.application.routes.draw do
 
   namespace :account do
     resources :orders
+    resources :users
   end
 
   resources :orders do
@@ -50,6 +54,12 @@ Rails.application.routes.draw do
       post :pay_with_alipay
       post :pay_with_wechat
       post :apply_to_cancel
+    end
+  end
+
+  resources :addresses do
+    member do
+      put :set_default_address
     end
   end
 
