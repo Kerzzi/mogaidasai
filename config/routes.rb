@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root 'static_pages#about'
+    get 'static_pages/about'
     resources :products do
       resources :product_images, only: [:index, :create, :destroy, :update]
     end
