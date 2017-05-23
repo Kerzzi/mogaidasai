@@ -29,9 +29,9 @@
                  </ul>
                </li>
                <li><%= link_to("产品", products_path) %></li>
-               <li><%= link_to(content_tag(:i, '帮助', class: 'fa fa-sign-out'), static_pages_help_path) %></li>
-               <li><%= link_to(content_tag(:i, '关于', class: 'fa fa-sign-out'), static_pages_about_path) %></li>
-               <li><%= link_to(content_tag(:i, '联系', class: 'fa fa-sign-out'), static_pages_contact_path) %></li>
+               <li><%= link_to("帮助", static_pages_help_path) %></li>
+               <li><%= link_to("关于", static_pages_about_path) %></li>
+               <li><%= link_to("联系", static_pages_contact_path) %></li>
             </ul>
             <!-- 搜索框 -->
             <form class="navbar-form navbar-left">
@@ -58,13 +58,13 @@
                     </a>
                     <ul class="dropdown-menu">
                          <% if current_user.admin? %>
-                           <li>
-                             <%= link_to('后台管理<span class="glyphicon glyphicon-stats pull-right">'.html_safe,
-                                         admin_static_pages_about_path) %>
-                           </li>
+                            <li>
+                              <%= link_to('后台管理<span class="glyphicon glyphicon-stats pull-right">'.html_safe,
+                                         admin_root_path) %>
+                            </li>
                            <li role="separator" class="divider"></li>
                          <% end %>
-                         <li> <%= link_to('我的订单 <span class="glyphicon glyphicon-user pull-right"></span>'.html_safe, "#") %> </li>
+                         <li> <%= link_to('我的订单 <span class="glyphicon glyphicon-user pull-right"></span>'.html_safe, account_orders_path) %> </li>
                          <li> <%= link_to('我的收货地址<span class="glyphicon glyphicon-headphones pull-right"></span>'.html_safe,"#") %> </li>
                          <li> <%= link_to('我收藏的项目<span class="glyphicon glyphicon-heart pull-right"></span>'.html_safe, "#") %> </li>
                          <li role="separator" class="divider"></li>

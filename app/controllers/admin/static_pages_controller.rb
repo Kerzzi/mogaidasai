@@ -1,5 +1,5 @@
-class Admin::StaticPagesController < ApplicationController
+class Admin::StaticPagesController < Admin::BaseController
   def about
-    
+
   end
 end
