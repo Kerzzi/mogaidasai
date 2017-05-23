@@ -14,6 +14,9 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
+               <li><%= link_to(content_tag(:i, '帮助', class: 'fa fa-sign-out'), static_pages_help_path) %></li>
+               <li><%= link_to(content_tag(:i, '关于', class: 'fa fa-sign-out'), static_pages_about_path) %></li>
+               <li><%= link_to(content_tag(:i, '联系', class: 'fa fa-sign-out'), static_pages_contact_path) %></li>
                <li>
                    <%= link_to carts_path do  %>
                       购物车 <i class="fa fa-shopping-cart"> </i> ( <%= current_cart.products.count %> )
@@ -31,10 +34,7 @@
                     <ul class="dropdown-menu">
                          <% if current_user.admin? %>
                            <li>
-                              <%= link_to("Admin 选单", admin_products_path ) %>
-                           </li>
-                           <li>
-                              <%= link_to("个人订单列表", account_orders_path ) %>
+                             <%= link_to("Admin 选单", admin_products_path ) %>
                            </li>
                          <% end %>
                         <li> <%= link_to(content_tag(:i, '登出', class: 'fa fa-sign-out'), destroy_user_session_path, method: :delete) %> </li>
