@@ -15,8 +15,23 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                <li class="active"><a href="<%= root_path %>">首页 <span class="sr-only">(current)</span></a></li>
-               <li><a href="#">分类</a></li>
-               <li><%= link_to("Products", products_path) %></li>
+               <li class="dropdown">
+                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">分类浏览
+                   <span class="caret"></span>
+                 </a>
+                 <ul class="dropdown-menu">
+                   <% @categories.each do |group| %>
+                     <li class="list-group-item"><%= group.first.title %></li>
+                     <% group.last.each do |sub_category| %>
+                       <li class="list-group-item"><a href="<%= category_path(sub_category) %>"><%= sub_category.title %></a></li>
+                     <% end -%>
+                   <% end -%>
+                 </ul>
+               </li>
+               <li><%= link_to("产品", products_path) %></li>
+               <li><%= link_to(content_tag(:i, '帮助', class: 'fa fa-sign-out'), static_pages_help_path) %></li>
+               <li><%= link_to(content_tag(:i, '关于', class: 'fa fa-sign-out'), static_pages_about_path) %></li>
+               <li><%= link_to(content_tag(:i, '联系', class: 'fa fa-sign-out'), static_pages_contact_path) %></li>
             </ul>
             <!-- 搜索框 -->
             <form class="navbar-form navbar-left">
@@ -26,9 +41,7 @@
               <button type="submit" class="btn btn-default">搜索</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-               <li><%= link_to(content_tag(:i, '帮助', class: 'fa fa-sign-out'), static_pages_help_path) %></li>
-               <li><%= link_to(content_tag(:i, '关于', class: 'fa fa-sign-out'), static_pages_about_path) %></li>
-               <li><%= link_to(content_tag(:i, '联系', class: 'fa fa-sign-out'), static_pages_contact_path) %></li>
+
                <li>
                    <%= link_to carts_path do  %>
                       购物车 <i class="fa fa-shopping-cart"> </i> ( <%= current_cart.products.count %> )
@@ -46,13 +59,14 @@
                     <ul class="dropdown-menu">
                          <% if current_user.admin? %>
                            <li>
-                             <%= link_to("后台管理", admin_static_pages_about_path ) %>
-                             <li role="separator" class="divider"></li>
+                             <%= link_to('后台管理<span class="glyphicon glyphicon-stats pull-right">'.html_safe,
+                                         admin_static_pages_about_path) %>
                            </li>
+                           <li role="separator" class="divider"></li>
                          <% end %>
-                         <li><a href="#">我的订单</a></li>
-                         <li><a href="#">我的收获地址</a></li>
-                         <li><a href="#">我的收藏</a></li>
+                         <li> <%= link_to('我的订单 <span class="glyphicon glyphicon-user pull-right"></span>'.html_safe, "#") %> </li>
+                         <li> <%= link_to('我的收货地址<span class="glyphicon glyphicon-headphones pull-right"></span>'.html_safe,"#") %> </li>
+                         <li> <%= link_to('我收藏的项目<span class="glyphicon glyphicon-heart pull-right"></span>'.html_safe, "#") %> </li>
                          <li role="separator" class="divider"></li>
                          <li><a href="#">个人信息</a></li>
                          <li role="separator" class="divider"></li>
