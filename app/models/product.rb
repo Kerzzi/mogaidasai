@@ -20,6 +20,7 @@ class Product < ApplicationRecord
   validates :description, presence: { message: "描述不能为空" }
 
   belongs_to :category
+  has_many :product_images, -> { order(weight: 'desc') },dependent: :destroy
 
   before_create :set_default_attrs #产品创建之前生成唯一uuid
 

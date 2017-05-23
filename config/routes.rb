@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'product_images/controller'
+
   get 'static_pages/about'
   get 'static_pages/help'
   get 'static_pages/contact'
@@ -9,7 +11,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root 'static_pages#about'
-    resources :products
+    resources :products do
+      resources :product_images, only: [:index, :create, :destroy, :update]
+    end
     resources :categories
     resources :orders do
       member do
