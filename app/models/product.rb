@@ -21,6 +21,8 @@ class Product < ApplicationRecord
 
   belongs_to :category
   has_many :product_images, -> { order(weight: 'desc') },dependent: :destroy
+  has_one :main_product_image, -> { order(weight: 'desc') },
+    class_name: :ProductImage
 
   acts_as_votable
 

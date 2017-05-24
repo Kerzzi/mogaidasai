@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   def index
     fetch_home_data
     @products = Product.onshelf.page(params[:page] || 1).per_page(params[:per_page] || 12)
-                .order("id desc").includes(:product_images)
+                .order("id desc").includes(:main_product_image)
   end
 
   def show
@@ -26,5 +26,5 @@ class ProductsController < ApplicationController
     @product.upvote_by current_user
     redirect_to :back
   end
-  
+
 end

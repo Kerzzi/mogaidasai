@@ -1,16 +1,65 @@
 <div class="row">
   <% @products.each do |product| %>
-    <div class="col-sm-6 col-md-4">
+    <div class="col-sm-6 col-md-3">
       <div class="thumbnail">
-        <%= link_to image_tag(product.main_product_image.image.url(:middle), alt: product.title), product_path(product) %>
-        <div class="caption">
-          <h4><%= link_to product.title, product_path(product), class: 'title' %></h4>
-          <p><strong>¥<%= product.price %></strong> <span class="msrp">¥<%= product.msrp %></span></p>
-          <p><a href="#" class="btn btn-danger btn-sm" role="button">加入购物车</a></p>
-        </div>
+
+        <%= link_to product_path(product) do %>
+          <% if product.product_images.present? %>
+            <%= link_to image_tag(product.main_product_image.image.url(:middle), alt: product.title), product_path(product) %>
+          <% else %>
+            <%= image_tag("http://placehold.it/200x200&text=No Pic") %>
+          <% end %>
+        <% end %>
+
+        <table>
+          <tr>
+            <td width="100%">
+              <div >
+                <h4><%= link_to product.title, product_path(product), class: 'title' %></h4>
+              </div>
+            </td>
+            <td width="100%">
+              <% if !current_user %>
+                <span><a href="#"  data-toggle="modal" data-target="#login-modal">
+                  <div class="pi-thumbs-up" onclick="openModal()" >
+                    <i class="fa fa-thumbs-up fa-2x" , style="color:#ff5722;"></i>
+                    <%= product.get_upvotes.size %>
+                  </div>
+
+                </a></span>
+              <% else %>
+                <%= link_to like_product_path(product), method: :put do %>
+                <div class="pi-thumbs-up" onclick="openModal()" >
+
+                  <i class="fa fa-thumbs-up fa-2x" , style="color:#ff5722;"></i>
+
+                  <%= product.get_upvotes.size %>
+                </div>
+                <% end %>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td width="100%">
+              <div >
+                <p><strong>¥<%= product.price %></strong> <span class="msrp">¥<%= product.msrp %></span></p>
+              </div>
+            </td>
+            <td width="100%">
+              <div >
+                <% if product.quantity.present? && product.quantity > 0 %>
+                    <p><%= link_to("加入购物车", add_to_cart_product_path(product), method: :post,
+                               class: "btn btn-sm btn-danger" ) %></p>
+                <% else %>
+                    <p><%= link_to("商品已售空", "#", class: "btn btn-sm btn-danger") %></p>
+                <% end %>
+              </div>
+            </td>
+          </tr>
+        </table>
       </div>
     </div>
-  <% end -%>
+  <% end %>
 </div>
 
 <%= will_paginate @products %>

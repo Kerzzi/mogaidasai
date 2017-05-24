@@ -1,23 +1,12 @@
-
 <div class="row">
-  <% @products.each do |product| %>
-    <div class="col-xs-6 col-md-3">
-      <%= link_to product_path(product) do %>
-        <% if product.image.present? %>
-          <%= image_tag(product.image.thumb.url, class: "thumbnail") %>
-        <% else %>
-          <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
-        <% end %>
-      <% end %>
-      <%= product.title %> ￥ <%= product.price %>
-      <%= link_to like_product_path(product), method: :put do %>
-        <div class="pi-thumbs-up">
-          <i class="fa fa-thumbs-up fa-2x" , style="color:#ff5722;"></i>
-          <%= product.get_upvotes.size %>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
-</div>
+  <!-- <div class="col-lg-3">
+    <%= render 'common/categories' %>
+  </div> -->
 
-<!-- 可以将这个页面重构为partial，后期取消这个页面 -->
+    <ol class="breadcrumb">
+      <li class="active">所有商品</li>
+    </ol>
+    <%= render 'common/products' %>
+    <%= will_paginate @products %>
+
+</div>
