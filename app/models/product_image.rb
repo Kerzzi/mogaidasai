@@ -7,7 +7,7 @@ class ProductImage < ApplicationRecord
   has_attached_file :image, styles: {
     small: '200^x200',
     middle: '400^x400',
-    big: "960x"
+    big: "900x"
   }
 
   #限制上传类型
