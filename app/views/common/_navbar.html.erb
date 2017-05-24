@@ -68,7 +68,7 @@
                          <li> <%= link_to('我的收货地址<span class="glyphicon glyphicon-headphones pull-right"></span>'.html_safe,"#") %> </li>
                          <li> <%= link_to('我收藏的项目<span class="glyphicon glyphicon-heart pull-right"></span>'.html_safe, "#") %> </li>
                          <li role="separator" class="divider"></li>
-                         <li><a href="#">个人信息</a></li>
+                         <li><%= link_to("用户中心", edit_account_user_path(current_user)) %></li>
                          <li role="separator" class="divider"></li>
                         <li>
                           <%= link_to(content_tag(:i, '登出', class: 'fa fa-sign-out'), destroy_user_session_path, method: :delete) %>
