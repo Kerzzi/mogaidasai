@@ -22,6 +22,8 @@ class Product < ApplicationRecord
   belongs_to :category
   has_many :product_images, -> { order(weight: 'desc') },dependent: :destroy
 
+  acts_as_votable
+
   before_create :set_default_attrs #产品创建之前生成唯一uuid
 
   scope :onshelf, -> { where(status: Status::On) }
