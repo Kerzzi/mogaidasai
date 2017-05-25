@@ -6,4 +6,4 @@ Paperclip::Attachment.default_options[:qiniu_credentials] = {
 Paperclip::Attachment.default_options[:bucket] = 'jdstore'
 Paperclip::Attachment.default_options[:use_timestamp] = false
 Paperclip::Attachment.default_options[:qiniu_host] =
-  'oqgnjaxh1.bkt.clouddn.com'
+  'http://oqgnjaxh1.bkt.clouddn.com'
