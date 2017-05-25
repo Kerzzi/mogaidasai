@@ -26,7 +26,8 @@
                     <td>
                         <%= link_to product_path(cart_item.product) do %>
                         <% if cart_item.product.main_product_image.present? %>
-                        <%= image_tag(cart_item.product.main_product_image.image.url(:small), class: "thumbnail") %>
+                        <!-- <%= image_tag qiniu_image_path(cart_item.product.main_product_image.image.url, :thumbnail => '300x300>',, :quality => 80)  %> -->
+                        <img thumbnail="300x300>" quality="80" src=<%= qiniu_image_path(cart_item.product.main_product_image.image.url) %>>
                     <% else %>
                         <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
                         <% end %>

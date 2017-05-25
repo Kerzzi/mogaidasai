@@ -20,7 +20,8 @@
 
   <% if @product.image.present? %>
     <span>目前商品图</span> <br>
-    <%= image_tag(@product.image.thumb.url) %>
+    <!-- <%= image_tag qiniu_image_path(@product.image.thumb.url,:thumbnail => '300x300>', :quality => 80) %> -->
+    <img thumbnail="300x300>" quality="80" src=<%= qiniu_image_path(@product.image.thumb.url) %>>
   <% end %>
 
   <div class="group">

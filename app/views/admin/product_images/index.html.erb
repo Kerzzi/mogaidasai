@@ -23,7 +23,8 @@
     <% @product_images.each do |product_image| %>
       <tr>
         <td><%= product_image.id %></td>
-        <td><%= image_tag product_image.image.url(:middle) %></td>
+        <!-- <td><%= qiniu_image_tag product_image.image.url, :thumbnail => '300x300>', :quality => 80 %></td> -->
+        <td><img thumbnail="300x300>" quality="80" src=<%= qiniu_image_path(product_image.image.url) %>></td>
         <td>
           <%= form_tag admin_product_product_image_path(@product, product_image), method: :put do %>
             <input type="text" value="<%= product_image.weight %>" name="weight" />

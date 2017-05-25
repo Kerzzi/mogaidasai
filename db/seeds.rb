@@ -8,7 +8,7 @@
 
 
 u = User.new
-u.email = "admin@kerzzi.com"           # 可以改成自己的 email
+u.email = "kerzzi@outlook.com"           # 可以改成自己的 email
 
 u.password = "123456"                # 最少要六码
 

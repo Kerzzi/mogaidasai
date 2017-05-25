@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'product_images/controller'
-
   get 'static_pages/about'
   get 'static_pages/help'
   get 'static_pages/contact'
