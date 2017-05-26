@@ -14,8 +14,7 @@
       <% @product.product_images.each do |product_image| %>
         <div class="col-xs-6 col-md-6">
           <a href="#" class="thumbnail detail">
-            <!-- <%= qiniu_image_tag product_image.image.url, :thumbnail => '300x300>', :quality => 80 %> -->
-            <img thumbnail="300x300>" quality="80" src=<%= qiniu_image_path(product_image.image.url) %>>
+            <img src=<%= qiniu_image_path(product_image.image.url) %>>
           </a>
         </div>
       <% end %>
@@ -72,8 +71,7 @@
                <div class="row">
                  <% @product.product_images.each do |product_image| %>
                    <div class="col-xs-12 col-md-12 product-show-detail">
-                       <!-- <%= qiniu_image_tag product_image.image.url, :thumbnail => '300x300>', :quality => 80 %> -->
-                       <img thumbnail="300x300>" quality="80" src=<%= qiniu_image_path(product_image.image.url) %>>
+                       <img  src=<%= qiniu_image_path(product_image.image.url) %>>
                    </div>
                  <% end %>
                </div>
