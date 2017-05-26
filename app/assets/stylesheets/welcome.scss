@@ -3,22 +3,26 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-
-
-
 /*===== Navbar 导览列 ======*/
 .navbar.navbar-default {
-  background: rgba(0,0,0,0.3);
+  background: #000;
   color: #000 !important;
 
   a:hover,
   a:active,
   a:focus {
-    color: #eb5424 !important;
+    color: #fff !important;
   }
 
   &.show_bgcolor {
     background-color: #02061A;
+  }
+  .login {
+    border: 1px solid #fff;
+    margin-top: 12px;
+    padding: 3px 17px 3px 17px;
+    margin-right: 130px;
+    border-radius: 15px;
   }
 }
 
@@ -46,9 +50,6 @@
   font-size: 60px;
   font-family: STKaiti, "华文楷体";
 }
-
-
-
 
 
 //------- 头图 end -----------

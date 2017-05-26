@@ -1,20 +1,19 @@
-<nav class="navbar navbar-default" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="<%= root_path %>">LUCK</a>
+          <a class="navbar-brand" href="<%= root_path %>">SeeYoo</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-               <li class="active"><a href="<%= root_path %>">首页 <span class="sr-only">(current)</span></a></li>
+               <li ><%= link_to("首页", root_path) %></li>
                <li class="dropdown">
                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">分类浏览
                    <span class="caret"></span>
@@ -28,10 +27,8 @@
                    <% end -%>
                  </ul>
                </li>
-               <li><%= link_to("产品", products_path) %></li>
-               <li><%= link_to("帮助", static_pages_help_path) %></li>
-               <li><%= link_to("关于", static_pages_about_path) %></li>
-               <li><%= link_to("联系", static_pages_contact_path) %></li>
+               <li><%= link_to("商品", products_path) %></li>
+               <li><%= link_to("服务", static_pages_help_path) %></li>
             </ul>
             <!-- 搜索框 -->
             <form class="navbar-form navbar-left">
@@ -48,8 +45,12 @@
                    <% end %>
                </li>
                 <% if !current_user %>
-                  <li><a href="#" data-toggle="modal" data-target="#signup-modal">注册</a></li>
-                  <li><a href="#" data-toggle="modal" data-target="#login-modal">登入</a></li>
+                  <li>
+                    <div class="login">
+                      <a href="#" data-toggle="modal" data-target="#signup-modal">注册</a> |
+                      <a href="#" data-toggle="modal" data-target="#login-modal">登入</a>
+                    </div>
+                  </li>
                 <% else %>
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -64,11 +65,11 @@
                             </li>
                            <li role="separator" class="divider"></li>
                          <% end %>
-                         <li> <%= link_to('我的订单 <span class="glyphicon glyphicon-user pull-right"></span>'.html_safe, account_orders_path) %> </li>
-                         <li> <%= link_to('我的收货地址<span class="glyphicon glyphicon-headphones pull-right"></span>'.html_safe,"#") %> </li>
-                         <li> <%= link_to('我收藏的项目<span class="glyphicon glyphicon-heart pull-right"></span>'.html_safe, "#") %> </li>
+                         <li> <%= link_to('我的订单 <span class="glyphicon glyphicon-envelope pull-right"></span>'.html_safe, account_orders_path) %> </li>
+                         <li> <%= link_to('我的收货地址<span class="glyphicon glyphicon-home pull-right"></span>'.html_safe,"#") %> </li>
+                         <li> <%= link_to('我收藏的商品<span class="glyphicon glyphicon-heart pull-right"></span>'.html_safe, "#") %> </li>
                          <li role="separator" class="divider"></li>
-                         <li><%= link_to("用户中心", edit_account_user_path(current_user)) %></li>
+                         <li><%= link_to('用户中心 <span class="glyphicon glyphicon-cog pull-right"></span>'.html_safe, edit_account_user_path(current_user)) %></li>
                          <li role="separator" class="divider"></li>
                         <li>
                           <%= link_to(content_tag(:i, '登出', class: 'fa fa-sign-out'), destroy_user_session_path, method: :delete) %>
