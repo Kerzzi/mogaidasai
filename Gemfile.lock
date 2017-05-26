@@ -67,6 +67,7 @@ GEM
     carrierwave-qiniu (0.1.8.2)
       carrierwave
       qiniu (~> 6.4.2)
+    choice (0.2.0)
     climate_control (0.2.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
@@ -171,6 +172,11 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
+    rails-erd (1.5.2)
+      activerecord (>= 3.2)
+      activesupport (>= 3.2)
+      choice (~> 0.2.0)
+      ruby-graphviz (~> 1.2)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
     railties (5.0.3)
@@ -189,6 +195,7 @@ GEM
     rest-client (1.7.3)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
+    ruby-graphviz (1.2.3)
     ruby-hmac (0.4.0)
     sass (3.4.24)
     sass-rails (5.0.6)
@@ -264,6 +271,7 @@ DEPENDENCIES
   puma (~> 3.0)
   qiniu-rs
   rails (~> 5.0.2)
+  rails-erd
   sass-rails (~> 5.0)
   simple_form
   spring

@@ -54,6 +54,8 @@ gem 'paperclip-qiniu'
 # or get the latest version
 # gem 'paperclip-qiniu', :git => "git://github.com/lidaobing/paperclip-qiniu"
 
+gem 'rails-erd'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
