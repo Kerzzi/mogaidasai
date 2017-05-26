@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require social-share-button
  *= require_tree .
  *= require_self
  */
@@ -17,11 +18,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
-
+@import "social-share-button";
 
 @import url(http://fonts.googleapis.com/css?family=Roboto);
 
-/****** LOGIN MODAL（弹窗登录效果） ******/
+/* LOGIN MODAL（弹窗登录效果）*/
 .loginmodal-container {
   padding: 30px;
   max-width: 350px;
@@ -126,3 +127,16 @@
 .msrp {
   text-decoration: line-through;
 }
+/****** 完成商品列表简单样式 ******/
+
+/****** 分享按钮样式 ******/
+$size: 24px;
+
+.social-share-button {
+  .ssb-icon {
+    background-size: $size $size;
+    height: $size;
+    width: $size;
+  }
+}
+/****** 完成分享按钮样式 ******/

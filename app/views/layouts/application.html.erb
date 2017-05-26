@@ -12,15 +12,21 @@
 
     </head>
 
+
     <body>
         <%= render "common/navbar" %>
+
         <div class="container">
             <%= render "common/flashes" %>
+            
             <%= yield %>
         </div>
+
 
         <%= render "common/footer" %>
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %><!-- 这是为了引入整个网站的JS文件 -->
         <%= yield :javascripts %><!--  前端优化，提升加载速度：这是为了在不同页面引入独立的JS文件 -->
+
+
     </body>
 </html>
