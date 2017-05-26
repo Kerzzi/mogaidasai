@@ -119,24 +119,6 @@
 
 /****** 完成弹窗登录效果 ******/
 
-
-/****** 商品列表简单样式 ******/
-.list-group-item a {
-  display: block;
-}
 .msrp {
   text-decoration: line-through;
 }
-/****** 完成商品列表简单样式 ******/
-
-/****** 分享按钮样式 ******/
-$size: 24px;
-
-.social-share-button {
-  .ssb-icon {
-    background-size: $size $size;
-    height: $size;
-    width: $size;
-  }
-}
-/****** 完成分享按钮样式 ******/

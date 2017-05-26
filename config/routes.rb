@@ -29,6 +29,8 @@ Rails.application.routes.draw do
   resources :products do
     member do
       post :add_to_cart
+      post :favorite
+      post :unfavorite
       put "like", to: "products#upvote"
     end
     resources :reviews
@@ -40,6 +42,8 @@ Rails.application.routes.draw do
      post :checkout
    end
   end
+
+  resources :favorites
 
   namespace :account do
     resources :users
