@@ -5,11 +5,11 @@
 
         <%= link_to product_path(product) do %>
           <% if product.product_images.present? %>
-            <%= link_to product_path(product) do %>
+            
              <!-- BUG解决了，感谢刘志新老师 -->
              <img thumbnail="300x300>" quality="80" src=<%= qiniu_image_path(product.main_product_image.image.url) %>>
              <!-- 这个也可以设置图片大小和质量的 -->
-            <% end %>
+
           <% else %>
             <%= image_tag("http://placehold.it/200x200&text=No Pic") %>
           <% end %>
