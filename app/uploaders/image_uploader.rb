@@ -7,9 +7,13 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Choose what kind of storage to use for this uploader:
   # storage :file
   # storage :fog
-  storage :qiniu
-
-  self.qiniu_can_overwrite = true
+  #storage :qiniu
+  if Rails.env.production?
+      storage :fog
+  elsif Rails.env.development?
+      storage :file
+  end 
+  #self.qiniu_can_overwrite = true
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
