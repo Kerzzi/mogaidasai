@@ -55,6 +55,7 @@ gem 'paperclip-qiniu'
 # gem 'paperclip-qiniu', :git => "git://github.com/lidaobing/paperclip-qiniu"
 
 gem 'rails-erd'
+gem 'social-share-button'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
