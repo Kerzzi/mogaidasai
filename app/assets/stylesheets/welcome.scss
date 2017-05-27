@@ -1,3 +1,113 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+/*----- footer ----*/
+
+.footer {
+    background: #455A64;
+    padding: 16px 10px 6px;
+    text-align: center;
+    font-size: 12px;
+    color: #C2C2C2;
+}
+
+.footer span {
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+    height: 24px;
+    line-height: 23px;
+  }
+
+
+
+
+// 中间区域介绍内容样式
+  .landing-page-mid {                                   //给图片整好形
+    height: 534px;
+    background-size: cover;                             //确保图片完全撑开
+    margin-top: 0px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url(http://ww4.sinaimg.cn/large/006tNbRwgy1ffzzmaueitj31kw18s7wk.jpg);
+  }
+  .landing-page-mid .tagline {                          //编写标题样式
+    text-align: center;
+    color: #7f8c8d;
+    letter-spacing: 0.1em;                              //把字间距撑开，视觉感更优雅
+    font-size: 1.6em;
+    margin-top: 3.2em;
+  }
+  .landing-page-mid .tagp {                             //编写内容样式
+    text-align: center;
+    color: #666;
+    font-size: 1.2em;
+    margin-top: 2.5em;
+    line-height: 2.5em;                                 //行间距也要拉开大一些
+    letter-spacing: 0.18em;                             //把字间距撑开，视觉感更优雅
+  }
+
+
+
+
+
+/* question */
+
+#question {
+  background-color: #EFEBE9;
+  margin-bottom: 45px;
+  margin-top:-20px;
+  color: none;
+  font-family: 300;
+
+  .col-md-3 {
+    padding: 30px;
+    border-right: 10px solid #aaa;
+    height: 250px;
+  }
+  .col-md-3:last-child {
+    border: none;
+  }
+  .sub-question {
+    margin-bottom: 10px;
+    //color: rgba(0, 0, 0, 0.4);
+  }
+  .answer {
+    //color: rgba(0, 0, 0, 0.4);
+  }
+}
+
+
+
+
+/*===== Story 首页-品牌故事 =====*/
+.story-box {
+  text-align: center;
+  margin-top: -50px;
+  padding: 25px 62.5px 50px 62.5px;
+  background-color: #EFEBE9;
+
+  h3 {
+    font-size: 20px;
+    text-align: left;
+  }
+
+  p {
+    color: #666;
+    line-height: 30px;
+    text-align: justify;
+  }
+
+  img {
+    width: 150px;
+    border-radius: 50%;
+  }
+
+  hr {
+    height: 1.5px;
+    background-color: #999;
+  }
+}
