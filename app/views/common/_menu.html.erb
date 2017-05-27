@@ -1,0 +1,31 @@
+<% if params[:controller] == ('products') && params[:action] == ('show') %>
+  <div class="menu-wrap">
+    <ul class="menuList clearfix w1200 f16 bc">
+      <li class="menuList-item fl pl20 pr20">
+        <%= link_to("首页", products_path)%>
+      </li>
+      <% @categories.each do |category| %>
+        <li class="menuList-item fl">
+          <% category.last.each do |sub_category| %>
+            <%= link_to sub_category.title, category_path(sub_category), class: "link" %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% else %>
+  <div class="menu-wrap">
+    <ul class="menuList clearfix w1200 f16 bc">
+      <li class="menuList-item fl pl20 pr20 menuList-activeItem">
+        <%= link_to("首页", products_path)%>
+      </li>
+      <% @categories.each do |category| %>
+        <li class="menuList-item fl">
+          <% category.last.each do |sub_category| %>
+            <%= link_to sub_category.title, category_path(sub_category), class: "link" %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

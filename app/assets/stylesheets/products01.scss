@@ -1,0 +1,151 @@
+
+// 参考郑智的格式
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+/*每个页面都要用到的css*/
+body {
+  color: #2E2E2E;
+  font-family: "Microsoft Yahei",verdana;
+  background: #FFFFFF;
+}
+a {
+  color: #6D6D6D;
+}
+a:hover {
+  color: #C81623;
+  text-decoration: none;
+}
+.main-content {
+  min-height: 850px;
+}
+
+/*页面最小高度1000*/
+.minHeight1000 {
+  min-height: 1000px;
+}
+
+/*字体颜色和背景颜色*/
+.bg-gray {
+  background: #F5F5F5
+}
+.bg-red {
+  background: #D32048
+}
+.col-gray {
+  color: #808080;
+}
+.col-black {
+  color: #333333;
+}
+.col-red {
+  color: #d32048;
+}
+.col-blue {
+  color: #005AA0;
+}
+
+/*边框*/
+.border {
+  border: 1px solid #DDDDDD;
+}
+
+// 导航栏
+.navbar-wrap {
+  height: 30px;
+  line-height: 30px;
+  border-bottom: 1px solid #EEEEEE;
+  overflow: hidden;
+  color: #909090;
+}
+.jh_navbar-spacer {
+  width: 1px;
+  height: 12px;
+  margin-top: 9px;
+  padding: 0;
+  background: #ddd;
+  overflow: hidden;
+}
+
+/*菜单*/
+.menu-wrap {
+  background: #333333;
+  height: 42px;
+  line-height: 42px;
+  color: #fff;
+}
+.menuList-item {
+  a {
+    color: #FFF;
+  }
+  padding: 0 22px;
+  cursor: pointer;
+}
+.menuList-item:hover {
+  background-color: #434343;
+}
+.menuList-activeItem {
+  background: #D32048;
+}
+.menuList-activeItem:hover {
+  background: #D32048;
+}
+
+/*轮播图*/
+.banner img {
+  width: 1200px;
+  height: 360px;
+}
+
+.carousel-inner .item {
+  height: 375px;
+}
+
+/*排序*/
+.order {
+  background: #fff;
+  height: 44px;
+  line-height: 44px;
+}
+.orderList-orderItem {
+  cursor: pointer;
+}
+.orderList-activeItem a {
+  color: #d32048;
+}
+
+  // /*footer*/
+  // .footer {
+  //   background: #333333;
+  //   padding: 16px 10px 6px;
+  //   text-align: center;
+  //   font-size: 12px;
+  //   color: #C2C2C2;
+  //   span {
+  //     display: inline-block;
+  //     margin-left: 5px;
+  //     margin-right: 5px;
+  //     height: 24px;
+  //     line-height: 23px;
+  //   }
+  // }
+
+
+  /*固定在顶部的头部*/
+  .header_fixed {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background: #fff;
+    box-shadow: rgba(0,0,0,.1) 0 1px 5px;
+  }
+
+  .header_fixed .header_content {
+    margin-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  .header_placeholder {
+    display: none;
+  }

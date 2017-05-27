@@ -1,0 +1,129 @@
+
+<div class="lp">
+	<div class="lp-banner">
+	  <div class="jumbotron">
+	    <div class="text-content">
+	      <h1 class="jumbotron-title">让你感觉相见恨晚的零食</h1>
+	      <p class="jumbotron-slogan">
+	        买得开心，吃得放心
+	      </p>
+	      <p class="jumbotron-lead"><a class="btn-lg lp-b-btn" href="/products">
+	      	立刻选购</a>
+	      </p>
+	    </div>
+	  </div>
+	</div>
+
+	<div class="lp-products pt60 pb60 lp-bg-gray">
+		<h2 class="title tc f22 pb50">热卖产品</h2>
+		<div class="productList-wrap w1200 bc">
+    <ul class="productList clearfix pb20">
+      <% Product.all.includes(:photos).sort_by {|product| product.favorites.count}.reverse.each_with_index do |product, index| %>
+				<% if index < 10 %>
+          <%= render :partial => "product_item", locals: { product: product, index: index } %>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+	</div>
+
+	<div class="lp-advantage pt60 pb60">
+		<h2 class="title tc f22 pb50">我们可以给您提供什么</h2>
+		<div class="container bc">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="lp-advantage-item bc pl20 pr20 tc wow fadeIn">
+						<img class="lp-advantage-img" src="https://ww1.sinaimg.cn/large/006tNc79ly1fd6jzimgwgj30ie0ie0td.jpg">
+						<p class="lp-advantage-title f18 mt20">急速配送</p>
+						<p class="lp-advantage-desc f14 pl20 pr20 mt30">我们与全国180多个城市的大型超市合作，每天有无数个快递员穿梭于您与超市之间。配送人员提供全天24小时送货服务。</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="lp-advantage-item bc pl20 pr20 tc wow fadeIn" data-wow-duration="1s" data-wow-delay=".5s">
+						<img class="lp-advantage-img" src="https://ww3.sinaimg.cn/large/006tNc79ly1fd6k2sz9a8j30ow0oywfk.jpg">
+						<p class="lp-advantage-title f18 mt20">让您幸福感爆棚的零食</p>
+						<p class="lp-advantage-desc f14 pl20 pr20 mt30">每个人总有心情不好的时候。那么怎样才能有效改善自己的心情，让自己摆脱忧郁重新对生活充满信心呢？偶尔的一点零食，正是您调节心态的好方法。</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="lp-advantage-item bc pl20 pr20 tc wow fadeIn" data-wow-duration="1s" data-wow-delay="1s">
+						<img class="lp-advantage-img" src="https://ww3.sinaimg.cn/large/006tNc79ly1fd6k7s7eywj304604g3yg.jpg">
+						<p class="lp-advantage-title f18 mt20">安全食品，正品行货</p>
+						<p class="lp-advantage-desc f14 pl20 pr20 mt30">严格的质量把控，我们只卖正品、安全、高质量的产品。如果您对商品不满意，我们提供7天无理由退换货。您尽管放心地买。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- <div class="lp-how pt60 pb60">
+		<h2 class="title tc f22 pb20">我们是如何快速送达商品的</h2>
+		<p class="f16 tc light">与全国180多个城市大型超市合作，每天有无数的快递员穿梭于您与超市之间。</p>
+	</div> -->
+
+	<div class="lp-feedback pt60 pb60 lp-bg-gray">
+		<h2 class="title tc f22 pb20">「西柚」的超级粉丝</h2>
+		<p class="f16 tc light pb30">听听他们是怎么评价的</p>
+    <div class="home-people container">
+    	<div class="row">
+    		<div class="item person fl col-md-4">
+	        <div class="avata-wrapper">
+	          <img class="avata" src="https://ww3.sinaimg.cn/large/006tNbRwgy1fd6f2qhsagj30aa0a40wo.jpg">
+	        </div>
+	        <div class="intro clearfix">
+	          <div class="name">
+	            Mike
+	          </div>
+	        </div>
+	        <div class="words wow fadeIn" data-wow-duration="1s">
+	          <span class="bg"></span>
+	          <span class="fa fa-quote-left quote quote-l iconfont"></span>
+	          <span class="fa fa-quote-right quote quote-r iconfont"></span>
+	          <div class="content">代码敲到累的时候，上「西柚」买点零食，然后起身活动活动，伸伸懒腰，派送员就送上门了，又快又方便!</div>
+	        </div>
+	      </div>
+	      <div class="item person fl col-md-4">
+	        <div class="avata-wrapper">
+	          <img class="avata" src="https://ww3.sinaimg.cn/large/006tNbRwgy1fd6fdugpl3j30cc0d20zq.jpg">
+	        </div>
+	        <div class="intro clearfix">
+	          <div class="name">
+	            小岳岳
+	          </div>
+	        </div>
+	        <div class="words wow fadeIn" data-wow-duration="1s" data-wow-delay=".5s">
+	          <span class="bg"></span>
+	          <span class="fa fa-quote-left quote quote-l iconfont"></span>
+	          <span class="fa fa-quote-right quote quote-r iconfont"></span>
+	          <div class="content">作为零食达人的我，吃遍天下零食，几乎快吃腻了，直到遇见「西柚」，我就没有这个烦恼了，因为每天都有新品上架，吃都吃不完，哈哈</div>
+	        </div>
+	      </div>
+	      <div class="item person fl col-md-4">
+	        <div class="avata-wrapper">
+	          <img class="avata" src="https://ww1.sinaimg.cn/large/006tNbRwgy1fd6f6vnin5j30jy0k2k43.jpg">
+	        </div>
+	        <div class="intro clearfix">
+	          <div class="name">
+	            Green
+	          </div>
+	        </div>
+	        <div class="words wow fadeIn" data-wow-duration="1s" data-wow-delay="1s">
+	          <span class="bg"></span>
+	          <span class="fa fa-quote-left quote quote-l iconfont"></span>
+	          <span class="fa fa-quote-right quote quote-r iconfont"></span>
+	          <div class="content">「西柚」卖的零食都是正品，质量有保证，我们家的年货都是在上面买的，超赞！</div>
+	        </div>
+	      </div>
+    	</div>
+    </div>
+	</div>
+
+	<div class="lp-action tc pr">
+		<div class="text-content pa pt60 pb60">
+			<p class="f16 pb20"> 嗨，我想对你说，I Want To Seeyoo!</p>
+			<p class="wow zoomIn" data-wow-duration=".5s">
+				<a class="btn-lg lp-b-btn bc"  href="/products">立刻选购</a>
+			</p>
+		</div>
+	</div>
+</div>

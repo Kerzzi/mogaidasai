@@ -1,0 +1,88 @@
+<div class="navbar-wrap clearfix pl10 pr10 bg-gray f12">
+  <div class="jh_navbar w1200 bc">
+    <div class="jh_navbar-left fl"><%=link_to("欢迎来到西柚！", products_path)%></div>
+    <ul class="jh_navbar-list fr">
+
+      <% if !current_user %>
+        <li class="fl jh_navbar-listItem pr10 pl10">
+          <a href="#" data-toggle="modal" data-target="#signup-modal">注册</a>
+        </li>
+        <li class="jh_navbar-spacer fl"></li>
+        <li class="fl jh_navbar-listItem pr10 pl10">
+          <a href="#" data-toggle="modal" data-target="#login-modal">登入</a>
+        </li>
+      <% end %>
+
+      <% if current_user %>
+        <li class="fl jh_navbar-listItem pr10 pl10">
+         Hi!  <%= current_user.email %>
+        </li>
+        <li class="jh_navbar-spacer fl"></li>
+        <li class="fl jh_navbar-listItem pr10 pl10">
+        <%= link_to(' 已收藏的商品'.html_safe, "#") %>
+        </li>
+        <li class="jh_navbar-spacer fl"></li>
+        <li class="fl jh_navbar-listItem pr10 pl10">
+           <%= link_to('我的订单'.html_safe, account_orders_path) %>
+        </li>
+        <li class="jh_navbar-spacer fl"></li>
+        <li class="fl jh_navbar-listItem pr10 pl10">
+           <%= link_to('用户中心'.html_safe, edit_account_user_path(current_user)) %>
+        </li>
+        <li class="jh_navbar-spacer fl"></li>
+        <li class="fl jh_navbar-listItem pr10 pl10">
+        </li>
+
+        <li class="jh_navbar-spacer fl"></li>
+        <% if current_user.admin?%>
+          <li class="fl jh_navbar-listItem pr10 pl10">
+            <%= link_to('后台管理'.html_safe, admin_root_path) %>
+          </li>
+          <li class="jh_navbar-spacer fl"></li>
+        <% end %>
+        <li class="fl jh_navbar-listItem pr10 pl10">
+          <%= link_to("登出", destroy_user_session_path, method: :delete) %>
+        </li>
+      <% end %>
+
+    </ul>
+  </div>
+</div>
+
+<!-- 以下代码实现登入登出的弹窗效果 -->
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog" role="document">
+    <div class="loginmodal-container">
+       <h2>Log in</h2>
+       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+         <div class="form-inputs">
+           <%= f.input :email, required: false, autofocus: true %>
+           <%= f.input :password, required: false %>
+           <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+         </div>
+         <div class="form-actions">
+           <%= f.button :submit, "Log in" %>
+         </div>
+       <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="loginmodal-container">
+      <h2>Sign up</h2>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+        <div class="form-inputs">
+          <%= f.input :email, required: true, autofocus: true %>
+          <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+          <%= f.input :password_confirmation, required: true %>
+        </div>
+        <div class="form-actions">
+            <%= f.button :submit, "Sign up" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
