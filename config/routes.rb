@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   resources :categories, only: [:show]
 
   resources :products do
+    get :search, on: :collection
     member do
       post :add_to_cart
       post :favorite
