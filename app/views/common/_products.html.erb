@@ -15,10 +15,10 @@
           <tr>
             <td width="100%">
               <div >
-                <h4><%= link_to product.title, product_path(product), class: 'title' %></h4>
+                <h4>&nbsp;<%= link_to product.title, product_path(product), class: 'title' %></h4>
               </div>
             </td>
-            <td width="100%">
+            <!-- <td width="100%">
               <% if !current_user %>
                 <span><a href="#"  data-toggle="modal" data-target="#login-modal">
                   <div class="pi-thumbs-up" onclick="openModal()" >
@@ -32,20 +32,19 @@
                 <div class="pi-thumbs-up" onclick="openModal()" >
 
                   <i class="fa fa-thumbs-up fa-2x" , style="color:#ff5722;"></i>
-
                   <%= product.get_upvotes.size %>
                 </div>
                 <% end %>
               <% end %>
-            </td>
+            </td> -->
           </tr>
           <tr>
             <td width="100%">
               <div >
-                <p><strong>¥<%= product.price %></strong> <span class="msrp">¥<%= product.msrp %></span></p>
+                <p><strong>&nbsp;现价¥ &nbsp;<%= product.price %></strong> &nbsp;&nbsp;<span class="msrp"> 原价&nbsp;¥&nbsp;<%= product.msrp %></span></p>
               </div>
             </td>
-            <td width="100%">
+            <!-- <td width="100%">
               <div >
                 <% if product.quantity.present? && product.quantity > 0 %>
                     <p><%= link_to("加入购物车", add_to_cart_product_path(product), method: :post,
@@ -54,7 +53,7 @@
                     <p><%= link_to("商品已售空", "#", class: "btn btn-sm btn-danger") %></p>
                 <% end %>
               </div>
-            </td>
+            </td> -->
           </tr>
         </table>
       </div>

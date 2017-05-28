@@ -22,15 +22,119 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto);
 
 
+ // 界面基础设置
+html, body {
+    /* 設定body高度為100% 拉到視窗可視的大小 */
+    height: 100%;
+}
+
+#id_wrapper {
+    /* 設定高度最小為100%, 如果內容區塊很多, 可以長大 */
+    min-height: 100%;
+    /* 位置設為relative, 作為footer區塊位置的參考 */
+    position: relative;
+}
+
+#id_header {
+    /* 設定header的高度 */
+    height: 40px;
+    box-sizing: border-box;
+}
+
+#id_content {
+    /* 留出header及footer區塊的空間 */
+    padding-top: 25px;
+    padding-bottom: 60px;
+}
+
+#id_footer {
+    /* 設定footer的高度 */
+    height: 40px;
+    box-sizing: border-box;
+    /* 設定footer絕對位置在底部 */
+    // position: absolute;
+    bottom: 0;
+    /* 展開footer寬度 */
+    width: 100%;
+}
 
 
+/*===== navbar ====*/
+
+/* common navbar */
+
+.navbar-default {
+  margin-bottom: 0;
+  border-radius: 0;
+  background: rgb(88,75,79);
+    .navbar-header {
+      margin-left: 9%;
+      a {
+        font-size: 20px;
+        color: #fff;
+        transition: 0.35s;
+      }
+      a:hover {
+        color: #D0CFCE;
+      }
+    }
+    .navbar-nav li a {
+      color: #fff;
+      font-size: 16px;
+      transition: 0.35s;
+    }
+    .navbar-nav li a:hover {
+      color: #D0CFCE;
+      text-decoration: none
+    }
+
+    .navbar-nav .dropdown-menu {
+      padding-bottom: 0;
+      padding-top: 0;
+      a {
+        text-align: center;
+        color: #000;
+      }
+      li.divider:last-child {
+        display: none;
+      }
+    }
+    .login {
+      border: 1px solid #fff;
+      margin-top: 12px;
+      padding: 3px 17px 3px 17px;
+      margin-right: 130px;
+      border-radius: 15px;
+    }
+
+ }
+
+ .navbar-brand {
+   letter-spacing: 0.1em;       //拉开一点点字间距
+   font-weight:lighter;         //字体粗细比默认样式缩小100磅值，让logo显得精致高级
+ }
+
+.navbar-default {
+  background: rgba(0,0,0,0.3);
+  color: #000 !important;
+  font-size: 1.2em;
+  a:hover,
+  a:active,
+  a:focus {
+    color: #eb5424 !important;
+  }
+  &.show_bgcolor {
+    background-color: #02061A;
+  }
+}
+/*===== end of navbar ====*/
 
 //---- footer ------
 
 .footer{
     text-align: center;
     min-height: 250px;
-    background-color: #002E2E;
+    background-color:  #000;
     // margin-bottom: -50px;
     padding: 15px 0;
     color: #fff;
@@ -51,7 +155,7 @@
 
     a{
       text-decoration:none;
-      color: #ccc;
+      // color: #ccc;
     }
     a:hover,
     a:active,
@@ -117,8 +221,9 @@
   }
 
 }
+/*===== end of footer ====*/
 
-/*===== footer ====*/
+
 
 /* LOGIN MODAL（弹窗登录效果）*/
 

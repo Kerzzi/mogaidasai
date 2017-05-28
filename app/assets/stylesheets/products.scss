@@ -3,11 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-// /*  products index page */
-// .products-1 .col-md-4{
-//   padding-left: 5px;
-//   padding-right: 5px;
-// }
+/*  products index page */
+.product-box .carousel img {
+    // position: relative;
+    width: 100%;
+    height: 400px;
+    margin: -10px 0px 15px -15px;
+}
 
 /* show page */
 div.social-share-button {
@@ -31,80 +33,6 @@ a.btn{
 height:40px;
 font-size: 18px;
 }
-
-// /* products#index */
-//
-//
-// .products-1 {
-//   width: 950px;
-//   margin-left: auto;
-//   margin-right: auto;
-//   margin-bottom: 30px;
-//   padding-top: 80px;
-// }
-//
-// .products-1 .introduction {
-//   font-size: 20px;
-//   padding-top: 15px;
-//   padding-bottom: 15px;
-//   text-align: right;
-// }
-// .products-1 .introduction-sub {
-//   text-align: right;
-//   font-size: 30px;
-// }
-//
-// .products-1 img{
-//  width: 100%;
-//  height: 200px;
-//  display: inline-block;
-//  vertical-align: middle;
-//  -moz-transition: transform 10s;
-//  -webkit-transition: transform 10s;
-// }
-//
-// .products-1 .filter {
-//   background: #fff;
-//   padding: 10px;
-//   margin-bottom: 20px;
-//   margin-left: -10px;
-//   margin-right: -10px;
-// }
-//
-// .products-1 .filter span {
-//   margin-right: 20px;
-//   a{
-//     color: rgba(0, 0, 0, 0.5);
-//   }
-//   i.fa{
-//     color: rgba(0, 0, 0, 0.3);
-//   }
-//   a:hover{
-//     text-decoration: none;
-//   }
-// }
-//
-// .products-1 .box {
-//   padding-left: 0px;
-//   padding-right: 0px;
-//   margin-bottom: 10px;
-//   font-size: 20px;
-//   transition: 0.35s;
-//   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
-//   &:hover{
-//     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.22);
-//   }
-//   span{
-//     font-size: 16px;
-//   }
-// }
-//
-//
-// .ending {
-//   padding-top: 20px;
-//   padding-bottom: 20px;
-//   margin-bottom: 0;
-// }
 
 /* Product#show */
 
