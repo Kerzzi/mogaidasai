@@ -1,13 +1,58 @@
-<div class="container">
-  <!-- <div class="col-lg-3">
-    <%= render 'common/categories' %>
-  </div> -->
-    <div class="row">
+<div class="product-box">
+  <div class="container ">
+    <!--=== 轮播图 ===-->
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      </ol>
+      <div id="hover" class="carousel-inner" role="listbox">
+
+        <div class="item active" data-slide-to="0">
+          <div class="carousel-BC1">
+            <div class="container">
+              <img src="http://ww3.sinaimg.cn/large/006tKfTcgy1fg17gn2spwj31kw11xnpk.jpg" width="1140" alt="...">
+              <div class="carousel-caption">
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item" data-slide-to="1">
+          <div class="carousel-BC2">
+            <div class="container">
+              <img src="http://ww3.sinaimg.cn/large/006tKfTcgy1fg17igfwk3j31kw11xhdu.jpg" width="1140" alt="...">
+              <div class="carousel-caption">
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item" data-slide-to="2">
+          <div class="carousel-BC3">
+            <div class="container">
+              <img src="http://ww2.sinaimg.cn/large/006tKfTcgy1fg17lczqw7j31kw11xe88.jpg" width="1140" alt="...">
+              <div class="carousel-caption">
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
       <ol class="breadcrumb">
         <li class="active">所有商品</li>
       </ol>
-    </div>
-    <%= render 'common/products' %>
-    <%= will_paginate @products %>
 
+      <%= render 'common/products' %>
+    </div>
+
+    <div class="page-box">
+      <%= will_paginate @products %>
+    </div>
+  </div>
 </div>

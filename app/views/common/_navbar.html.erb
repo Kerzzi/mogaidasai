@@ -1,10 +1,10 @@
 <div class="row">
   <div class="col-md-12">
-      <% if current_page?('/') %>
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
-      <% else %>
-        <div class="navbar navbar-default navbar-fixed-top show_bgcolor" role="navigation">
-      <% end %>
+    <% if current_page?('/') %>
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
+    <% else %>
+      <div class="navbar navbar-default navbar-fixed-top show_bgcolor" role="navigation">
+    <% end %>
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -14,7 +14,7 @@
                 <span class="icon-bar"></span>
               </button>
 
-              <a class="navbar-brand" href="<%= root_path %>">季风</a>
+              <a class="navbar-brand" href="<%= root_path %>"><strong>季风</strong></a>
 
             </div>
 
@@ -28,9 +28,9 @@
                      </a>
                      <ul class="dropdown-menu">
                        <% @categories.each do |group| %>
-                         <li class="list-group-item"><%= group.first.title %></li>
+
                          <% group.last.each do |sub_category| %>
-                           <li class="list-group-item"><a href="<%= category_path(sub_category) %>"><%= sub_category.title %></a></li>
+                           <li class="list-group-item "><a href="<%= category_path(sub_category) %>"><%= sub_category.title %></a></li>
                          <% end -%>
                        <% end -%>
                      </ul>
@@ -94,8 +94,8 @@
             </div>
             <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container-fluid -->
-    </nav>
+        <!-- /.container -->
+    </div>
 
     <!-- 以下代码实现登入登出的弹窗效果 -->
     <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
