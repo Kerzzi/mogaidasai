@@ -1,24 +1,34 @@
+<div class="panel panel-info">
+  <!-- Default panel contents -->
+  <div class="panel-heading" align="center"><h1>订单管理 </h1></div>
+  <div class="panel-body" style="margin-left: 50px;">
+    <p>管理员可以取消订单或设为发货。</p>
+  </div>
+  <hr/ >
+  <h2 align="center">订单列表 </h2>
+  <hr/ width="25%">
 
-<h2>订单列表 </h2>
+  <!-- Table -->
+  <table class="table  table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>生成时间</th>
+        <th>订购者</th>
+        <th>订单状态</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+      <tr>
+        <td> <%= link_to(order.id, admin_order_path(order) ) %> </td>
+        <td> <%= order.created_at.to_s(:long) %> </td>
+        <td> <%= order.user.email %></td>
+        <td> <%= order.aasm_state %> </td>
+      </tr>
+      <% end %>
 
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>生成时间</th>
-      <th>订购者</th>
-      <th>订单状态</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @orders.each do |order| %>
-    <tr>
-      <td> <%= link_to(order.id, admin_order_path(order) ) %> </td>
-      <td> <%= order.created_at.to_s(:long) %> </td>
-      <td> <%= order.user.email %></td>
-      <td> <%= order.aasm_state %> </td>
-    </tr>
-    <% end %>
+    </tbody>
+  </table>
 
-  </tbody>
-</table>
+</div>

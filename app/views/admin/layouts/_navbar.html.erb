@@ -1,27 +1,31 @@
-<nav class="navbar navbar-default">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="# %>">管理平台</a>
-    </div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="navbar navbar-default navbar-fixed-top show_bgcolor" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="<%= admin_root_path %>"><strong>管理平台</strong></a>
+        </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="<%= admin_static_pages_about_path %>">后台说明 <span class="sr-only">(current)</span></a></li>
-        <li> <%= link_to("分类管理", admin_categories_path) %> </li>
-        <li> <%= link_to("商品管理", admin_products_path) %> </li>
-        <li> <%= link_to("订单管理", admin_orders_path) %> </li>
-        <li> <%= link_to("拍卖管理", admin_categories_path) %> </li>
-        <li> <%= link_to("返回前台", root_path) %> </li>
-        <li><%= link_to(content_tag(:i, '登出', class: 'fa fa-sign-out'),
-             destroy_user_session_path, method: :delete) %></li>
-      </ul>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="<%= admin_root_path %>">后台说明 <span class="sr-only">(current)</span></a></li>
+            <li> <%= link_to("类别管理", admin_categories_path) %> </li>
+            <li> <%= link_to("商品管理", admin_products_path) %> </li>
+            <li> <%= link_to("订单管理", admin_orders_path) %> </li>
+            <li> <%= link_to("拍卖管理", admin_categories_path) %> </li>
+            <li> <%= link_to("返回前台", root_path) %> </li>
+            <li><%= link_to(content_tag(:i, '退出', class: 'fa fa-sign-out'),
+                 destroy_user_session_path, method: :delete) %></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
-</nav>
+</div>

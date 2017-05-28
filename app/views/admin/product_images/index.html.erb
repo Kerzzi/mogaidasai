@@ -1,42 +1,44 @@
-<div class="container">
-  <div class="container">
+<div class="panel panel-info">
+  <!-- Default panel contents -->
+  <div class="panel-heading" align="center"><h1>商品 #<%= @product.id %> <%= @product.title %></h1>
+  </div>
+  <div class="panel-body">
     <div class="pull-right">
       <%= form_tag admin_product_product_images_path(product_id: @product), method: :post, enctype: "multipart/form-data", class: "form-horizontal" do %>
         <input type="file" name="images[]" multiple class="image-input" />
         <%= submit_tag "上传", class: "btn btn-primary" %>
-      <% end -%>
+      <% end %>
     </div>
-
-    <h1>
-      商品 #<%= @product.id %> <%= @product.title %>
-    </h1>
+    <div style="margin-left: 50px;">
+      <h4>请至少上传5张照片！商品图片少于5张严禁上架！</h4>
+      <h4>图片权重最高者，为主图片！</h4>
+    </div>
   </div>
+  <hr/ width="25%">
 
-  <div class="container">
-    <table class="table table-striped">
+  <!-- Table -->
+  <table class="table table-striped">
+    <tr>
+      <th>ID</th>
+      <th>商品图片</th>
+      <th>图片权重</th>
+      <th>图片操作</th>
+    </tr>
+
+    <% @product_images.each do |product_image| %>
       <tr>
-        <th>ID</th>
-        <th>图片</th>
-        <th>权重</th>
-        <th></th>
+        <td><%= product_image.id %></td>
+        <td><img width="500px" src=<%= qiniu_image_path(product_image.image.url) %>></td>
+        <td>
+          <%= form_tag admin_product_product_image_path(@product, product_image), method: :put do %>
+            <input type="text" value="<%= product_image.weight %>" name="weight" />
+            <%= submit_tag "更新", class: "btn btn-default btn-xs" %>
+          <% end -%>
+        </td>
+        <td>
+          <%= link_to "删除", admin_product_product_image_path(@product, product_image), method: :delete, 'data-confirm': "确认删除吗?" %>
+        </td>
       </tr>
-
-      <% @product_images.each do |product_image| %>
-        <tr>
-          <td><%= product_image.id %></td>
-          <td><img width="500px" src=<%= qiniu_image_path(product_image.image.url) %>></td>
-          <td>
-            <%= form_tag admin_product_product_image_path(@product, product_image), method: :put do %>
-              <input type="text" value="<%= product_image.weight %>" name="weight" />
-              <%= submit_tag "更新", class: "btn btn-default btn-xs" %>
-            <% end -%>
-          </td>
-          <td align="right">
-            <%= link_to "删除", admin_product_product_image_path(@product, product_image), method: :delete, 'data-confirm': "确认删除吗?" %>
-          </td>
-        </tr>
-      <% end -%>
-    </table>
-
-  </div>
+    <% end %>
+  </table>
 </div>

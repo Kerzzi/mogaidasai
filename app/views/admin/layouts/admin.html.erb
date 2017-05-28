@@ -4,20 +4,26 @@
     <title>管理平台 - 魔改商城</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag 'admin', media: 'all' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= yield :stylesheets %>
   </head>
 
   <body>
-    <%= render 'admin/layouts/navbar' %>
+    <div id="id_wrapper">
+      <div id="id_header">
+        <%= render 'admin/layouts/navbar' %>
+      </div> <!-- /id_header -->
+      <div class="container" id="id_content">
+        <%= render "common/flashes" %>
+        <%= yield %>
+      </div><!-- /id_content -->
+    </div> <!-- /id_wrapper -->
+      <div id="id_footer">
+        <%= render "common/footer" %>
+      </div> <!-- /id_footer -->
 
-    <div class="container">
-      <%= render "common/flashes" %>
-      <%= yield %>
-    </div>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %><!-- 这是为了引入整个网站的JS文件 -->
+      <%= yield :javascripts %>
 
-    <%= javascript_include_tag 'admin' %>
-    <%= yield :javascripts %>
   </body>
 </html>

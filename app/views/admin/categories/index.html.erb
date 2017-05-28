@@ -1,41 +1,49 @@
-<div class="container">
-  <div class="pull-right">
-    <%= link_to "新建分类", new_admin_category_path, class: "btn btn-primary" %>
+<div class="panel panel-info">
+  <!-- Default panel contents -->
+  <div class="panel-heading" align="center"><h1>商品类别管理</h1></div>
+
+  <div class="panel-body">
+    <div class="pull-right">
+      <%= link_to "新建分类", new_admin_category_path, class: "btn btn-info" %>
+    </div>
+
+    <div style="margin-left: 50px;">
+      <p>管理员，您好！</p>
+      <% if @category %>
+        当前一级分类为: <strong><%= @category.title %></strong> ，该分类下共有 <strong><%= @categories.total_entries %></strong> 个二级分类。
+      <% else %>
+        当前共计 <strong><%= @categories.total_entries %></strong> 个一级分类!
+      <% end %>
+    </div>
+    <hr/ width="25%">
+    <div class="row" >
+      <table class="table  table-striped">
+        <tr >
+          <th>类别 ID</th>
+          <th>分类名称</th>
+          <th>权重</th>
+          <th >分类管理</th>
+        </tr>
+
+        <% @categories.each do |category| %>
+          <tr >
+            <td><%= category.id %></td>
+            <td><%= category.title %></td>
+            <td><%= category.weight %></td>
+            <td >
+              <% if category.root? %>
+                <%= link_to("查看子分类", admin_categories_path(id: category)) %>
+              <% else %>
+                <%= link_to("返回上级分类", admin_categories_path) %>
+              <% end %>
+              <%= link_to("编辑", edit_admin_category_path(category)) %>
+              <%= link_to("删除", admin_category_path(category), :method => :delete,:data => { :confirm => "Are you sure?" }) %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+
+      <%= will_paginate @categories %>
+    </div>
   </div>
-
-  <h1>
-    <% if @category %>
-      分类:<%= @category.title %>(<%= @categories.total_entries %>)
-    <% else %>
-      分类(<%= @categories.total_entries %>)
-    <% end %>
-  </h1>
-</div>
-
-<div class="container">
-  <table class="table table-striped">
-    <tr>
-      <th>ID</th>
-      <th>名称</th>
-      <th>权重</th>
-      <th></th>
-    </tr>
-
-    <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.id %></td>
-        <td><%= category.title %></td>
-        <td><%= category.weight %></td>
-        <td align="right">
-          <%= link_to "编辑", edit_admin_category_path(category) %>
-          <%= link_to "删除", admin_category_path(category), method: :delete, 'data-confirm': "确认删除吗?" %>
-          <% if category.root? %>
-            <%= link_to "查看子分类", admin_categories_path(id: category) %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </table>
-
-  <%= will_paginate @categories %>
 </div>

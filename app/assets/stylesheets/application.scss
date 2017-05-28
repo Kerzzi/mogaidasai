@@ -32,7 +32,7 @@ html, body {
     /* 設定高度最小為100%, 如果內容區塊很多, 可以長大 */
     min-height: 100%;
     /* 位置設為relative, 作為footer區塊位置的參考 */
-    position: relative;
+    // position: relative;
 }
 
 #id_header {
@@ -44,7 +44,7 @@ html, body {
 #id_content {
     /* 留出header及footer區塊的空間 */
     padding-top: 25px;
-    padding-bottom: 60px;
+    // padding-bottom: 60px;
 }
 
 #id_footer {
@@ -64,11 +64,11 @@ html, body {
 /* common navbar */
 
 .navbar-default {
+
   margin-bottom: 0;
   border-radius: 0;
   background: rgb(88,75,79);
     .navbar-header {
-      margin-left: 9%;
       a {
         font-size: 20px;
         color: #fff;
