@@ -20,7 +20,7 @@
 
   <% if @product.image.present? %>
     <span>目前商品图</span> <br>
-    <%= image_tag(@product.image.thumb.url) %>
+    <img  src=<%= qiniu_image_path(@product.image.thumb.url) %>>
   <% end %>
 
   <div class="group">

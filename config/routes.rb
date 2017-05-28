@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
+
   root 'welcome#index'
 
 
   get 'product_images/controller'
+
 
   get 'static_pages/about'
   get 'static_pages/help'
@@ -32,8 +34,11 @@ Rails.application.routes.draw do
   resources :categories, only: [:show]
 
   resources :products do
+    get :search, on: :collection
     member do
       post :add_to_cart
+      post :favorite
+      post :unfavorite
       put "like", to: "products#upvote"
     end
     resources :reviews
@@ -45,6 +50,8 @@ Rails.application.routes.draw do
      post :checkout
    end
   end
+
+  resources :favorites
 
   namespace :account do
     resources :users
@@ -59,6 +66,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :cart_items
+  resources :cart_items do
+    member do
+      post :add_quantity
+      post :remove_quantity
+    end
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
