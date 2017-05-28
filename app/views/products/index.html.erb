@@ -2,10 +2,11 @@
   <!-- <div class="col-lg-3">
     <%= render 'common/categories' %>
   </div> -->
-
-    <ol class="breadcrumb">
-      <li class="active">所有商品</li>
-    </ol>
+    <div class="row">
+      <ol class="breadcrumb">
+        <li class="active">所有商品</li>
+      </ol>
+    </div>
     <%= render 'common/products' %>
     <%= will_paginate @products %>
 
