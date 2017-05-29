@@ -20,6 +20,7 @@
 @import "font-awesome";
 @import "social-share-button";
 @import url(http://fonts.googleapis.com/css?family=Roboto);
+ @import url('https://fonts.googleapis.com/earlyaccess/notosanssc.css');   //引入google思源黑简在线字体 需要使用VPN才可生效
 
 
  // 界面基础设置
@@ -27,6 +28,22 @@ html, body {
     /* 設定body高度為100% 拉到視窗可視的大小 */
     height: 100%;
 }
+
+body {
+    font-family: 'Noto Sans SC', sans-serif;            // google思源黑简作为主字体
+    color: #666;                                        // 修改全站的 字体主色
+    // font-size: 1.2em;                                   // 网站所有字体缩小比例
+
+   a {                                                 // 所有a标签统一样式
+     color: #666;                                      // 链接反转的样式
+     transition: 0.5s;                                 // 鼠标移开时 0.5秒渐变
+   }
+   a:hover {
+     color: #7f8c8d;
+     transition: 0.5s;                                 // 鼠标指向时 0.5面渐变
+     text-decoration: none;                            // 移除下划线
+   }
+ }
 
 #id_wrapper {
     /* 設定高度最小為100%, 如果內容區塊很多, 可以長大 */
@@ -155,7 +172,7 @@ html, body {
 
     a{
       text-decoration:none;
-      // color: #ccc;
+      color: #fff;
     }
     a:hover,
     a:active,

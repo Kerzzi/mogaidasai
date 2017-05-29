@@ -35,6 +35,9 @@ font-size: 18px;
 }
 
 
+.product-thumbnail{
+  border: 1px solid #999;
+}
 .produst-list{
   height: 200px;
   overflow: hidden;
@@ -164,7 +167,7 @@ font-size: 18px;
   border-bottom: 1px dotted #dedede;
   p.price{
     span.rmb{
-      color: #d7282d;
+      color: #666;
       margin-left: 20px;
     }
     span.price{
@@ -172,8 +175,8 @@ font-size: 18px;
       font-size: 30px;
     }
     span.msrp {
-      color: #d7282d;
-      font-size: 30px;
+      color: #666;
+      font-size: 20px;
       text-decoration: line-through;
     }
   }
