@@ -6,7 +6,11 @@ class ProductImage < ApplicationRecord
 
   #指定图片尺寸
 
-  has_attached_file :image,:path => ":class/:attachment/:id/:basename.:extension"
+  has_attached_file :image,:path => ":class/:attachment/:id/:basename.:extension", styles: {
+    small: '60^x60',
+    middle: '200^x200',
+    big: "960x"
+  }
 
   validates :image, :attachment_presence => true
 
