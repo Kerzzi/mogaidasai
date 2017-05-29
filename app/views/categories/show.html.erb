@@ -1,8 +1,9 @@
 <div class="container">
-  <div class="col-lg-3">
+  <%= render "common/flashes" %>
+  <!-- <div class="col-lg-3">
     <%= render 'common/categories' %>
-  </div>
-  <div class="col-lg-9">
+  </div> -->
+  <div class="col-lg-12">
     <ol class="breadcrumb">
       <li><a href="<%= products_path %>">所有商品</a></li>
       <li class="active"><%= @category.parent.title %></li>

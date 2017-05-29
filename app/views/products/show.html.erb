@@ -1,7 +1,8 @@
 <div class="show-page">
+  <%= render "common/flashes" %>
 
     <ol class="breadcrumb">
-      <li><a href="<%= root_path %>">所有宝贝</a></li>
+      <li><a href="<%= products_path %>">所有宝贝</a></li>
       <li class="active"><%= @product.category.parent.title %></li>
       <li><a href="<%= category_path @product.category %>"><%= @product.category.title %></a></li>
       <li class="active"><%= @product.title %></li>
@@ -19,11 +20,11 @@
         <div class="tab-pane" id="pic-5"><img src=<%= qiniu_image_path(@product.product_images[4].image.url) %>></div>
       </div>
       <ul class="preview-thumbnail nav nav-tabs">
-        <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src=<%= qiniu_image_path(@product.product_images[0].image.url) %>></li>
-        <li><a data-target="#pic-2" data-toggle="tab"><img src=<%= qiniu_image_path(@product.product_images[1].image.url) %>></li>
-        <li><a data-target="#pic-3" data-toggle="tab"><img src=<%= qiniu_image_path(@product.product_images[2].image.url) %>></li>
-        <li><a data-target="#pic-4" data-toggle="tab"><img src=<%= qiniu_image_path(@product.product_images[3].image.url) %>></li>
-        <li><a data-target="#pic-5" data-toggle="tab"><img src=<%= qiniu_image_path(@product.product_images[4].image.url) %>></li>
+        <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src=<%= qiniu_image_path(@product.product_images[0].image.url) %>></a></li>
+        <li><a data-target="#pic-2" data-toggle="tab"><img src=<%= qiniu_image_path(@product.product_images[1].image.url) %>></a></li>
+        <li><a data-target="#pic-3" data-toggle="tab"><img src=<%= qiniu_image_path(@product.product_images[2].image.url) %>></a></li>
+        <li><a data-target="#pic-4" data-toggle="tab"><img src=<%= qiniu_image_path(@product.product_images[3].image.url) %>></a></li>
+        <li><a data-target="#pic-5" data-toggle="tab"><img src=<%= qiniu_image_path(@product.product_images[4].image.url) %>></a></li>
       </ul>
       <% end %>
     </div>

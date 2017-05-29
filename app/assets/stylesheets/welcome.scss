@@ -401,7 +401,19 @@ img {
 .lp-b-btn {
 
     background: #00BFA5;
+    position: relative;
+    // background-color: transparent;
     color: #fff;
-    letter-spacing: 2px;
-    font-weight: bold;
+    border-color: #fff;
+    padding: 10px 20px;
+    margin-top: 290px;
+    font-size: 20px;
+    letter-spacing: 1px;
+    z-index:3;
+}
+
+.lp-b-btn:hover{
+  background-color: #217F7B;
+  border-color: #217F7B;
+  color: #fff;
 }
