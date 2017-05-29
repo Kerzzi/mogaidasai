@@ -45,6 +45,7 @@ gem 'letter_opener', group: :development
 gem 'aasm'
 gem 'ancestry'
 gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 gem 'paperclip'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'carrierwave-qiniu'
