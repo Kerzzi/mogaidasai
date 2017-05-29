@@ -1,4 +1,5 @@
 class StaticPagesController < ApplicationController
+  layout 'layouts/about',only: [:about]
   def about
   end
 

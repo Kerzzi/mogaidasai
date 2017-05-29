@@ -18,15 +18,13 @@
           <div id="id_header">
             <%= render "common/navbar" %>
           </div> <!-- /id_header -->
-          <div class="row" id="id_content">
 
+          <div class="container" id="id_content">
               <%= yield %>
           </div><!-- /id_content -->
 
         </div> <!-- /id_wrapper -->
-        <div id="id_footer">
-          <%= render "common/footer" %>
-        </div> <!-- /id_footer -->
+
 
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %><!-- 这是为了引入整个网站的JS文件 -->
         <%= yield :javascripts %><!--  前端优化，提升加载速度：这是为了在不同页面引入独立的JS文件 -->
