@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  root 'welcome#index01'
+  root 'welcome#index'
 
 
   get 'product_images/controller'
@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   get 'static_pages/about'
   get 'static_pages/help'
-  get 'static_pages/contact'
+  get 'static_pages/category'
 
   devise_for :users
   root 'products#index'

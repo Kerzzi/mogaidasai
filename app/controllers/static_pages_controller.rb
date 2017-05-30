@@ -6,6 +6,6 @@ class StaticPagesController < ApplicationController
   def help
   end
 
-  def contact
+  def category
   end
 end

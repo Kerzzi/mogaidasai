@@ -14,7 +14,7 @@
                 <span class="icon-bar"></span>
               </button>
 
-              <a class="navbar-brand" href="<%= root_path %>"><strong>季风</strong></a>
+              <a class="navbar-brand" href="<%= root_path %>"><strong>MONSOON</strong></a>
 
             </div>
 
@@ -101,7 +101,7 @@
     <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
       <div class="modal-dialog" role="document">
         <div class="loginmodal-container">
-           <h2>Log in</h2>
+           <h2>登录</h2>
            <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
              <div class="form-inputs">
                <%= f.input :email, required: false, autofocus: true %>
@@ -119,7 +119,7 @@
     <div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
       <div class="modal-dialog">
         <div class="loginmodal-container">
-          <h2>Sign up</h2>
+          <h2>注册</h2>
             <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <%= f.error_notification %>
             <div class="form-inputs">
