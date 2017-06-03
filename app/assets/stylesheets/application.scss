@@ -94,7 +94,20 @@ body {
 
   margin-bottom: 0;
   border-radius: 0;
-  background: rgb(88,75,79);
+  background: #000;
+
+
+    // background: rgba(0,0,0,0.3);
+    color: #000 !important;
+    font-size: 1.2em;
+
+    a:focus {
+      color: #eb5424 !important;
+    }
+    &.show_bgcolor {
+      background-color: #02061A;
+    }
+
     .navbar-header {
       a {
         font-size: 20px;
@@ -140,20 +153,6 @@ body {
    letter-spacing: 0.1em;       //拉开一点点字间距
    font-weight:lighter;         //字体粗细比默认样式缩小100磅值，让logo显得精致高级
  }
-
-.navbar-default {
-  background: rgba(0,0,0,0.3);
-  color: #000 !important;
-  font-size: 1.2em;
-  a:hover,
-  a:active,
-  a:focus {
-    color: #eb5424 !important;
-  }
-  &.show_bgcolor {
-    background-color: #02061A;
-  }
-}
 /*===== end of navbar ====*/
 
 //---- footer ------

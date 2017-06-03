@@ -21,10 +21,10 @@
 
 
 // navbar实现变色效果
-$(window).scroll(function () {
-    if ($(this).scrollTop() > 625) {
-        $('#navbar').addClass('show_bgcolor')
-    } else {
-        $('#navbar').removeClass('show_bgcolor')
-    }
-})
+// $(window).scroll(function () {
+//     if ($(this).scrollTop() > 625) {
+//         $('#navbar').addClass('show_bgcolor')
+//     } else {
+//         $('#navbar').removeClass('show_bgcolor')
+//     }
+// })
