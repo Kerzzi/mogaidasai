@@ -50,7 +50,7 @@
         <h4 class="amount">¥ <%= render_cart_total_price(current_cart) %></h4>
         <p class="tips">* 确认购物商品无误后，前往结账页填写您的订单信息</p>
 
-        <%= link_to("清空购物车", clean_carts_path, method: :delete, class: "btn btn-info btn-block", data: {confirm: "Are you sure to clean the cart?"}) %>
+        <%= link_to("清空购物车", clean_carts_path, method: :delete, class: "btn btn-info btn-block") %>
 
         <%= link_to("结帐", checkout_carts_path, method: :post, class: "btn btn-danger btn-block") %>
       </aside>
