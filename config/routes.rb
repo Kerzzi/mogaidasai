@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   get 'static_pages/category'
 
   devise_for :users
-  root 'products#index'
 
   namespace :admin do
     root 'sessions#new'
