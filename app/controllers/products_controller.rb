@@ -4,8 +4,8 @@ class ProductsController < ApplicationController
   before_action :fetch_home_data
 
   def index
-    @products = Product.onshelf.page(params[:page] || 1).per_page(params[:per_page] || 24)
-                .order("id desc").includes(:main_product_image)
+    @products = Product.onshelf.page(params[:page]).per_page(24)
+                .order("created_at DESC").includes(:main_product_image)
   end
 
   def show

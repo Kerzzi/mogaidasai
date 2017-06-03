@@ -50,9 +50,10 @@
       </ol>
 
       <%= render 'common/products' %>
+      <div class="page-box" align="center">
+        <%= will_paginate @products %>
+      </div>
     </div>
-    <div class="page-box" align="center">
-      <%= will_paginate @products %>
-    </div>
+
   </div>
 </div>
