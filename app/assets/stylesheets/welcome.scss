@@ -8,11 +8,11 @@
 /*  --- 大图高度 和 滚动按钮 ---  */
 .fade-carousel {                                      //滚动大图的相框高
     position: relative;
-    height: 616px;
+    height: 816px;
     margin-top: -65px;
 }
 .fade-carousel .carousel-inner .item {                //图片截取的宽度，这里与相框高度一致
-    height: 616px;
+    height: 816px;
 }
 .fade-carousel .carousel-indicators > li {            //滚动按钮的设置
     width: 5px;
@@ -97,19 +97,20 @@
 .fade-carousel .slides .slide-1,
 .fade-carousel .slides .slide-2,
 .fade-carousel .slides .slide-3 {
-  height: 616px;
+  height: 816px;
   background-size: cover;                             //确保图片完全撑开
   background-position: center center;
   background-repeat: no-repeat;
 }
 .fade-carousel .slides .slide-1 {
-  background-image: url(http://ww1.sinaimg.cn/large/006tNbRwly1fg33f6ifu4j31kw16ox6p.jpg);
+  background-image: url(https://ww3.sinaimg.cn/large/006tKfTcgy1fg7v5k07bij31kw0w0774.jpg);
 }
 .fade-carousel .slides .slide-2 {
-  background-image: url(http://ww1.sinaimg.cn/large/006tNbRwly1fg33f1paztj31kw11x4m0.jpg);
+  background-image: url(https://ww1.sinaimg.cn/large/006tKfTcgy1fg7vwjz7taj31kw0w2dll.jpg);
 }
 .fade-carousel .slides .slide-3 {
-  background-image: url(http://ww4.sinaimg.cn/large/006tNbRwly1fg34ezf5d7j31kw11ze83.jpg);
+
+  background-image: url(https://ww4.sinaimg.cn/large/006tKfTcgy1fg7vygq1a3j31kw0l8tad.jpg);
 }
 
 /*  --- 响应式设置 ---  */
@@ -206,7 +207,7 @@
 
  //-------  用户反馈区 -------------//
  .sec-about {
-   background-color: #f5f5f5;
+   background-color: #EBEBEB;
    margin: -15px 0 -15px 0;
    .container{
      padding: 30px 0 30px 0;
@@ -305,14 +306,14 @@
    img{
      width: 100%;
      height: 200px;
+     border-radius: 10px;
    }
  }
  .product-list-style-img {                             //文字 块样式整形
    margin-bottom: 1.2em;
-
-
  }
  .all-product-box {
+   background-color: #fff;
    margin-bottom: 3em;
  }
 
