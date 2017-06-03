@@ -150,94 +150,27 @@ body {
 
 .footer{
     text-align: center;
-    min-height: 250px;
+    min-height: 50px;
     background-color:  #000;
     // margin-bottom: -50px;
-    padding: 15px 0;
+    padding: 20px 0;
     color: #fff;
-
-    h4{
-        font-size: 16px;
-        margin-top: 25px;
-        margin-bottom: 15px;
-    }
-
     p{
-        font-size: 14px;
-    }
-
-    li{
-      margin-top: 5px;
-    }
-
-    a{
-      text-decoration:none;
-      color: #fff;
-    }
-    a:hover,
-    a:active,
-    a:focus{
-      color: #4A6BB5;
-    }
-
-    img{
-      width: 35px;
-      margin: 5px;
-    }
-
-    .lp-action {
-        background: url(http://ww1.sinaimg.cn/large/006tNbRwly1fg34ib0dpgj31040o376q.jpg) center center no-repeat;
-    }
-
-    img:hover{
-      opacity: 0.75;
-    }
-
-    p{
+      font-size: 14px;
       a{
-        color: #4A6BB5;
+        // color: #4A6BB5;
+        text-decoration:none;
+        color: #fff;
       }
       a:hover{
         color: #35CCC6;
       }
-    }
-
-    .footer-box{
-      text-align: left !important;
-      margin-top: 15px;
+      a:focus{
+        color: #4A6BB5;
+      }
     }
 }
 
-.footer-content{
-  font-size: 16px;
-  font-family: Raleway;
-  color: #ddd;
-  letter-spacing: 1px;
-  margin-top: 10px;
-  font-weight: 200;
-
-  img{
-    width: 25px;
-    margin-left: 7.5px;
-    margin-right: -0.1px;
-  }
-  img:hover{
-    opacity: 1;
-  }
-
-}
-
-.goodjob{
-  float: right;
-  margin-top: -20px;
-  img{
-    width: 50px;
-  }
-  a:hover{
-    opacity: 0.45;
-  }
-
-}
 /*===== end of footer ====*/
 
 
