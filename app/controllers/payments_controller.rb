@@ -13,7 +13,9 @@ class PaymentsController < ApplicationController
   end
 
   def generate_pay
-    orders = current_user.orders.where(order_no: params[:order_nos].split(','))
+    # @order = Order.find_by_token(params[:id])
+    # 这里面还是有错误，这个last是无奈之中加入的
+    orders = current_user.orders.where(params[:token]).last
     payment = Payment.create_from_orders!(current_user, orders)
 
     redirect_to payments_path(payment_no: payment.payment_no)
@@ -23,6 +25,7 @@ class PaymentsController < ApplicationController
     do_payment
   end
 
+  #异步通知
   def pay_notify
     do_payment
   end
@@ -96,9 +99,9 @@ class PaymentsController < ApplicationController
       "anti_phishing_key" => "",
       "exter_invoke_ip" => "",
       "out_trade_no" => payment.payment_no,
-      "subject" => "蛋人商城商品购买",
+      "subject" => "Monsoon商品购买(仅供测试)",
       "total_fee" => payment.total_money,
-      "body" => "蛋人商城商品购买",
+      "body" => "Monsoon商品购买(仅供测试)",
       "_input_charset" => "utf-8",
       "sign_type" => 'MD5',
       "sign" => ""

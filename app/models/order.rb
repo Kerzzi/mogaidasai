@@ -1,6 +1,7 @@
 class Order < ApplicationRecord
 
   before_create :generate_token
+  # before_create :gen_order_no
   belongs_to :user
   has_many :product_lists
   belongs_to :payment
@@ -10,6 +11,7 @@ class Order < ApplicationRecord
   validates :shipping_name, presence: true
   validates :shipping_address, presence: true
 
+  #这个后面可以废弃了
   def generate_token
     self.token = SecureRandom.uuid
   end
@@ -19,17 +21,20 @@ class Order < ApplicationRecord
     self.update_columns(payment_method: method )
   end
 
+  #这个可以删除了
   def pay!
     self.update_columns(is_paid: true )
   end
 
+  #下面这2个方法看看能不能合并
   module OrderStatus
     Initial = 'initial'
     Paid = 'paid'
   end
 
-  def is_paid?
+  def paid?
     self.status == OrderStatus::Paid
+    self.update_columns(is_paid: true )
   end
 
   include AASM
@@ -63,5 +68,10 @@ class Order < ApplicationRecord
       transitions from: [:order_placed, :paid], to: :order_cancelled
     end
   end
+
+  # private
+  # def gen_order_no
+  #   self.order_no = RandomCode.generate_order_uuid
+  # end
 
 end
